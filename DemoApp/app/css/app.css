@@ -1,10 +1,31 @@
 /* app css stylesheet */
+
+.navbar {
+  height: 20px;
+  padding-top: 20px;
+  background: -webkit-linear-gradient(top, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
+ }
+
 .hoverwell:hover {
   background-color: #52575c;
   cursor: pointer;
 }
+
+.well {
+  background-color: #4f565d;
+}
+
+div {
+  color: #828b96;
+}
+
 select, textarea {
   color: #52575c;
+}
+
+body {
+  background-color: #292c30; !important
+  color: #828b96; !important
 }
 
 .well-title {
