@@ -1,10 +1,19 @@
 /* app css stylesheet */
 
-.navbar {
+.navbar .navbar-inner{
   height: 20px;
-  padding-top: 20px;
+  padding-top: 0px;
   background: -webkit-linear-gradient(top, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
  }
+
+ .navbar-brand, .navbar-nav > li > a, .navbar .nav > li > a {
+  text-shadow: none !important;
+  color: #FFFFFF !important; 
+ }
+
+input.ng-invalid.ng-dirty { /* make everything invalid and dirty with pink bkrdn */
+  background-color: pink;
+}
 
 .hoverwell:hover {
   background-color: #52575c;
@@ -13,10 +22,16 @@
 
 .well {
   background-color: #4f565d;
+  border: #000000;
+  color:  #FFFFFF;
 }
 
 div {
   color: #828b96;
+}
+
+.blue {
+  color: deepskyblue;
 }
 
 select, textarea {
@@ -24,8 +39,13 @@ select, textarea {
 }
 
 body {
-  background-color: #292c30; !important
-  color: #828b96; !important
+  background-color: #292c30 !important; 
+  color: #828b96 !important; 
+}
+
+/* For ng-cloak */ 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
 
 .well-title {

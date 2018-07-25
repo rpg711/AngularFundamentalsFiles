@@ -12,10 +12,10 @@
   "author": "Joe Eames & Jim Cooper",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "1.13.1",
     "express": "4.13.0"
   },
   "devDependencies": {
+    "body-parser": "^1.13.1",
     "eslint": "^5.1.0",
     "eslint-config-google": "^0.9.1"
   }
