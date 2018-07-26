@@ -1,7 +1,7 @@
 'use strict';
 
 eventsApp.controller('EventController',
-  ($scope, $anchorScroll, $log, eventData) => {
+  function($scope, $anchorScroll, $cookies, $log, $routeParams, $route, eventData) {
   $scope.snippet = '<span style="color:red">hi there!</span>';
   $scope.boolValue = true;
   $scope.mystyle = {color: 'Red'};
@@ -9,23 +9,30 @@ eventsApp.controller('EventController',
   $scope.buttonDisabled = false;
   $scope.sortorder = 'name';
 
-  $scope.event = eventData.getEvent().$promise
-    .then((e) => {
-      $scope.event = e;
-      $log.info(e);
-    })
-    .catch((err) => $log.error(err));
+  $scope.reload = () => $route.reload();
+
+  $scope.event = $route.current.locals.event;
 
   $scope.toggleHide = () => {
     $scope.boolValue = !$scope.boolValue;
   };
 
   $scope.upVoteSession = (session) => {
-    session.upVoteCount ++;
+    if (Number($cookies.get(session.id)) < 1 ) {
+      $cookies.put(session.id, Number($cookies.get(session.id)) + 1);
+      session.upVoteCount ++;
+    } else {
+      console.log('you alraedy upvoted', $cookies.getAll());
+    }
   };
 
   $scope.downVoteSession = (session) => {
-    session.upVoteCount --;
+    if (Number($cookies.get(session.id)) > -1) {
+      $cookies.put(session.id, Number($cookies.get(session.id)) - 1);
+      session.upVoteCount --;
+    } else {
+      console.log('you already downvoted');
+    }
   };
 
   $scope.scrollToSession = () => $anchorScroll();

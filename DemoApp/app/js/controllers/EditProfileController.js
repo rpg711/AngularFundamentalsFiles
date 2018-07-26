@@ -1,7 +1,7 @@
 'use strict';
 
 eventsApp.controller('EditProfileController',
-  ($scope, gravatarUrlBuilder, userData) => {
+  function($scope, gravatarUrlBuilder, userData) {
     $scope.user = {};
     $scope.forms = {};
 

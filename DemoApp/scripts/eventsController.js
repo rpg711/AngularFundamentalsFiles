@@ -16,3 +16,10 @@ module.exports.save = (req, res) => {
   fs.writeFileSync('app/data/event/' + id + '.json', JSON.stringify(event));
   res.send(event);
 };
+
+module.exports.getAllEvents = (req, res) => {
+  let directory = fs.readdirSync('app/data/event');
+  let events = directory.map((v) => fs.readFileSync('app/data/event/' + v, 'utf8'));
+  console.log('getAllEvents() : ', events);
+  res.send(events.map((v) => JSON.parse(v)));
+};

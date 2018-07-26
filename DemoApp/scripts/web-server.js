@@ -32,3 +32,12 @@ app.post('/data/user/:userName', (req, res) => {
   console.debug('POST /data/user/' + req.params.userName);
   user.save(req, res);
 });
+
+app.get('/data/event/', (req, res) => {
+  console.debug('GET /data/event/ ( all events )');
+  event.getAllEvents(req, res);
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(rootPath + '/app/index.html');
+});
