@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const event = require('./eventsController');
+const user = require('./usersController');
 
 let app = express();
 let rootPath = path.normalize(__dirname + '/../');
@@ -20,4 +21,14 @@ app.get('/healthcheck/', (req, res) => {
 app.get('/data/event/:id', (req, res) => {
   console.debug('GET /data/event/' + req.params.id);
   event.get(req, res);
+});
+
+app.post('/data/event/', (req, res) => {
+  console.debug('POST /data/event/');
+  event.save(req, res);
+});
+
+app.post('/data/user/:userName', (req, res) => {
+  console.debug('POST /data/user/' + req.params.userName);
+  user.save(req, res);
 });
